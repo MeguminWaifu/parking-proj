@@ -20,6 +20,10 @@ If you are developing a production application, we recommend using TypeScript wi
 - install latest node.js
 the link https://nodejs.org/en/download
 
+- Install react extension on vs code
+  <img width="404" height="717" alt="image" src="https://github.com/user-attachments/assets/57bad3fc-24b3-4979-b166-be173a0b5998" />
+
+
 - run this code in the vs code terminal:
 npm install -g npm@latest
 
