@@ -17,11 +17,11 @@ If you are developing a production application, we recommend using TypeScript wi
 
 ## TO DO
 
-install latest node.js
+-install latest node.js
 the link https://nodejs.org/en/download
-run this code in the vs code terminal
+-run this code in the vs code terminal
 npm install -g npm@latest
-if you get permission errors use this command first
+-if you get permission errors use this command first
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 
 By: Loli SLayer
