@@ -25,7 +25,7 @@ function ParkA() {
       <div className="grid-container">
         {slots.map(slot => (
           <div key={slot.id} className="slot-item">
-            {/* Using a simple car icon representation */}
+            
             <div className={`car-icon ${slot.status.toLowerCase()}`}>
               🚗
             </div>
