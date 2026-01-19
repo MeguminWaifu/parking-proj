@@ -12,9 +12,11 @@ function Home() {
   return (
     <>
     <Header user={username}/>
+    <div className="Welcome-message">
       <h1>Parking Project</h1>
       <h2>Malayan Laguna</h2>
       <p>Password Valid: {isPasswordValid ? "Yes" : "No"}</p>
+      </div>
     </>
   )
 }
