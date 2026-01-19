@@ -1,10 +1,11 @@
 
 import './Header.css'
 
-function Header() {
+// name="that dude"
+function Header(props) {
   return (
     <header className="main-header">
-      <h1>Welcome "Insert name here"</h1>
+      <h1>Welcome "{props.user}"</h1>
     </header>
   );
 }
