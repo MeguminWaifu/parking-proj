@@ -15,25 +15,25 @@ function ParkB() {
 
   return (
     <>
-    <Header user={username} />
-    <div className="map-page">
-      
-      <h2 className="lot-title">Parking Lot B</h2>
-      
-      <div className="grid-container">
-        {slots.map(slot => (
-          <div key={slot.id} className="slot-item">
-            {/* Using a simple car icon representation */}
-            <div className={`car-icon ${slot.status.toLowerCase()}`}>
-              🚗
+      <Header user={username} />
+      <div className="map-page">
+        
+        <h2 className="lot-title">Parking Lot B</h2>
+        
+        <div className="grid-container">
+          {slots.map(slot => (
+            <div key={slot.id} className="slot-item">
+              {/* Using a simple car icon representation */}
+              <div className={`car-icon ${slot.status.toLowerCase()}`}>
+                🚗
+              </div>
+              <span className={`status-text ${slot.status.toLowerCase()}`}>
+                {slot.status}
+              </span>
             </div>
-            <span className={`status-text ${slot.status.toLowerCase()}`}>
-              {slot.status}
-            </span>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
     </>
   );
 }

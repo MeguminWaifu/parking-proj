@@ -15,7 +15,9 @@ function ParkA() {
 
   return (
     <>
+    <div className="fixed-header">
     <Header user={username} />
+    </div>
     <div className="map-page">
       
       <h2 className="lot-title">Parking Lot A</h2>

@@ -3,7 +3,7 @@
   min-height: 100vh;
   text-align: center;
   padding: 20px;
-  margin: 0;
+  /* margin: 0; */
 }
 
 .lot-title {
@@ -38,5 +38,10 @@
 .status-text {
   font-size: 0.75rem;
   font-weight: bold;
-  margin-top: 4px;
+  margin-top: 2px;
+}
+.fixed-header {
+  margin: 10px;
+  padding-left: 10px;
+  padding: auto;
 }
