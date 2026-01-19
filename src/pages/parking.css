@@ -41,7 +41,7 @@
   margin-top: 2px;
 }
 .fixed-header {
-  /* margin: 0px; */
-  padding-left: 15px;
+  margin: 10px;
+  padding-left: 10px;
   padding: auto;
 }
