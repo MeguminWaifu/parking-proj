@@ -8,10 +8,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Setting path="/" makes this the first page users see */}
+        
         <Route path="/" element={<Login />} />
         
-        {/* You can move the main content to /dashboard or /home */}
+        
         <Route path="/home" element={<Home />} />
 
         <Route path="/parka" element={<ParkA />} />
