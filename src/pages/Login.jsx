@@ -1,6 +1,7 @@
 import { useState } from 'react'; 
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
+import mclLogo from '../assets/image\ asset/mcl\ sign.jpg';
 
 function Login() {
   const [username, setUsername] = useState(''); 
@@ -16,7 +17,7 @@ function Login() {
   <div className="login-container">
     
     <div className="login-box">
-      <h1>Login</h1>
+      <img src={mclLogo} alt="MCL Logo" className="login-logo" />
       <form onSubmit={handleLogin}>
         <input 
           type="text" 

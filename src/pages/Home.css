@@ -5,6 +5,107 @@
   text-align: center;
 }
 
+.Welcome-message {
+  padding: 20px;
+}
+
+.containers-wrapper {
+  display: flex;
+  gap: 10%;
+  padding: 20px;
+  height: auto;
+  min-height: 400px;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  flex: 0 0 auto;
+  border: none;
+  border-radius: 25px;
+  padding: 20px;
+  background-color: rgb(25, 55, 94);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(5px);
+  width: 400px;
+  height: 400px;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.container:hover {
+  background-color: rgb(50, 100, 150);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.left-container {
+  background-color: rgb(25, 55, 94);
+}
+
+.right-container {
+  background-color: rgb(25, 55, 94);
+}
+
+.progress-info {
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  margin: 10px 0;
+}
+
+.progress-bar-wrapper {
+  width: 100%;
+  height: 30px;
+  background-color: #ddd;
+  border-radius: 15px;
+  overflow: hidden;
+  margin: 15px 0;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, rgb(230, 29, 39), rgb(255, 100, 100));
+  border-radius: 15px;
+  transition: width 0.3s ease;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.increment-btn, .decrement-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.increment-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.increment-btn:hover {
+  background-color: #45a049;
+}
+
+.decrement-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.decrement-btn:hover {
+  background-color: #da190b;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -42,6 +143,10 @@
 }
 h2{
   color: rgb(25, 55, 94);
+  font-size: 2em;
+}
+.container h2 {
+  color: white;
 }
 h1{
     color:rgb(230, 29, 39);

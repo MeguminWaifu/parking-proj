@@ -4,21 +4,34 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f0f2f5;
+  background-image: url('../assets/image\ asset/MCL\ login\ bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: rgba(255, 255, 255, 0.3);
+  background-blend-mode: lighten;
 }
 
 .login-box {
-  background-color: white;   
-  padding: 40px;
-  border: 2px solid #333;    
-  border-radius: 20px;       
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+  background-color: rgba(255, 255, 255, 0.95);   
+  padding: 60px;
+  border: none;    
+  border-radius: 40px;       
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); 
+  backdrop-filter: blur(10px);
   
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 400px;          
+  max-width: 450px;
+}
+
+.login-logo {
+  max-width: 300px;
+  height: auto;
+  margin-bottom: 20px;
+  filter: brightness(1.2);
 }
 
 h1 {
