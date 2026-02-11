@@ -30,10 +30,10 @@ npm install -g npm@latest
 - if you get permission errors use this command first:
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 
-- UPDATES
--pip install "fastapi[standard]"
--pip install psycopg2-binary
--pip install qrcode[pil]
+## UPDATES
+- pip install "fastapi[standard]"
+- pip install psycopg2-binary
+- pip install qrcode[pil]
 
 
 By: Loli SLayer
