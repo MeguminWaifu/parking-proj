@@ -39,6 +39,7 @@ for Parking_API.py
 - pip install psycopg2-binary
 - pip install qrcode[pil]
 - pip install pydantic
+- pip install fastapi uvicorn 
 
 
 By: Loli SLayer
