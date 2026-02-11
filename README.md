@@ -34,6 +34,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 - pip install "fastapi[standard]"
 - pip install psycopg2-binary
 - pip install qrcode[pil]
+- pip install pydantic
 
 
 By: Loli SLayer
