@@ -27,6 +27,7 @@ the link https://nodejs.org/en/download
 
 - run this code in the vs code terminal:
 npm install -g npm@latest
+- npm install @neondatabase/serverless
 
 - if you get permission errors use this command first:
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
