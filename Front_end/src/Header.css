@@ -13,10 +13,28 @@ body{
   margin-top: 0;
   margin-bottom: 0;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 20px;
 }
+.header-left {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
 
+.header-center {
+  flex: 2; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; 
+}
 .logout-btn {
   background-color: #d32f2f;
   color: white;
@@ -47,4 +65,14 @@ body{
     color: rgb(247, 247, 247);
   line-height: 1;          
   text-align:left;
+}
+.admin-stat-badge {
+  background-color: rgb(230, 29, 39); 
+  color: white;
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-top: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }

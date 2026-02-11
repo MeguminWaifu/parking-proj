@@ -53,6 +53,7 @@
   font-weight: bold;
   color: white;
   margin: 10px 0;
+  font-size: 24px;
 }
 
 .progress-bar-wrapper {
@@ -66,7 +67,7 @@
 
 .progress-bar {
   height: 100%;
-  background: linear-gradient(90deg, rgb(230, 29, 39), rgb(255, 100, 100));
+  /* background: linear-gradient(90deg, rgb(230, 29, 39), rgb(255, 100, 100)); */
   border-radius: 15px;
   transition: width 0.3s ease;
 }
@@ -77,34 +78,13 @@
   justify-content: center;
   margin-top: 15px;
 }
-
-.increment-btn, .decrement-btn {
-  padding: 10px 20px;
-  font-size: 16px;
+.status-text{
+  font-size: 20px;
   font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  margin-top: 2px;
 }
 
-.increment-btn {
-  background-color: #4caf50;
-  color: white;
-}
 
-.increment-btn:hover {
-  background-color: #45a049;
-}
-
-.decrement-btn {
-  background-color: #f44336;
-  color: white;
-}
-
-.decrement-btn:hover {
-  background-color: #da190b;
-}
 
 .logo {
   height: 6em;

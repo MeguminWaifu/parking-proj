@@ -10,28 +10,35 @@ function Login() {
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
+  try {
+    const response = await fetch('http://localhost:3001/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userid, password }), 
+    });
 
-    try {
-      const response = await fetch('http://localhost:3001/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userid, password }), 
-      });
+    const data = await response.json();
 
-      const data = await response.json();
+    if (data.success) {
+      // Save user info to local storage
+      localStorage.setItem('userRole', data.role);
+      localStorage.setItem('userName', data.username);
 
-      if (data.success) {
-       
+      // Route based on role
+      if (data.role === 'admin') {
         navigate('/home', { state: { displayName: data.username } });
       } else {
-        alert(data.message || "Login failed");
+        navigate('/home', { state: { displayName: data.username } });
       }
-    } catch (err) {
-      console.error("Login error:", err);
-      alert("Server is not responding. Is the backend running?");
+    } else {
+      alert(data.message || "Login failed");
     }
-  };
+  } catch (err) {
+    console.error("Login error:", err);
+    alert("Server error");
+  }
+};
 
   return (
     <div className="login-container">

@@ -1,0 +1,54 @@
+.admin-page-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+  display: flex; 
+  flex-direction: column;
+}
+
+.table-container-card {
+  margin: 40px auto; 
+  width: 90%;
+  max-width: 1200px;
+  background-color: rgb(25, 55, 94); 
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse; 
+  text-align: center; 
+}
+
+.custom-table th {
+  background-color: #d32f2f; 
+  color: white;
+  padding: 15px;
+  font-size: 18px;
+  border: 2px solid white; 
+}
+
+.custom-table td {
+  padding: 15px;
+  font-size: 16px;
+  color: white; 
+  border: 2px solid white; 
+}
+
+/*INTERCHANGING ROW COLORS (Zebra Striping)*/
+.custom-table tr:nth-child(odd) {
+  background-color: rgb(25, 55, 94); 
+}
+
+.custom-table tr:nth-child(even) {
+  background-color: #3b5a82; 
+}
+
+/* Hover effect */
+.custom-table tr:hover {
+  background-color: #4a6ea1 !important; 
+  cursor: default;
+}
