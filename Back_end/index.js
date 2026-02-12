@@ -119,5 +119,39 @@ app.get('/api/sessions', async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+app.get('/api/queue-count', async (req, res) => {
+    try {
+        
+        const result = await sql`SELECT COUNT(*)::integer FROM queue`;
+        res.json({ count: result[0].count });
+    } catch (err) {
+        console.error("Queue count error:", err);
+        res.status(500).send("Database error");
+    }
+});
+app.post('/api/join-queue', async (req, res) => {
+    const { username } = req.body; 
 
-app.listen(3001, () => console.log('🚀 Backend running on http://localhost:3001'));
+    try {
+        const result = await sql`
+            INSERT INTO queue (userid) 
+            SELECT userid FROM users 
+            WHERE username = ${username}
+            RETURNING userid;
+        `;
+
+        if (result.length === 0) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        res.status(200).json({ message: "Joined queue!" });
+    } catch (err) {
+        console.error("Join Queue Error:", err);
+       
+        res.status(500).json({ message: "Already in queue or database error" });
+    }
+});
+// app.listen(3001, () => console.log('🚀 Backend running on http://localhost:3001'));
+
+const PORT = 3001; // Change this to your desired port
+app.listen(PORT, '0.0.0.0', () => console.log(`🚀 Backend running on Server on ${PORT}`));

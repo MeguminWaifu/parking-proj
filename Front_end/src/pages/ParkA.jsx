@@ -13,7 +13,8 @@ function ParkA() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3001/api/parking-a');
+        // const response = await fetch('http://localhost:3001/api/parking-a');
+        const response = await fetch('http://10.121.59.243:3001/api/parking-a');
         const data = await response.json();
         if (data.length > 0) {
           

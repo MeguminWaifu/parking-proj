@@ -6,7 +6,8 @@ function AdminDash() {
   const userName = localStorage.getItem('userName');
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/sessions')
+    // fetch('http://localhost:3001/api/sessions')
+    fetch('http://10.121.59.243:3001/api/sessions')
       .then(res => res.json())
       .then(allSessions => setData(allSessions)); // No filter needed
   }, []);

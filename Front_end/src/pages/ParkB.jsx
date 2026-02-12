@@ -12,7 +12,8 @@ function ParkB() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3001/api/parking-b');
+        // const response = await fetch('http://localhost:3001/api/parking-b');
+        const response = await fetch('http://10.121.59.243:3001/api/parking-b');
         const data = await response.json();
         if (data.length > 0) {
           setDbData({ count: data[0].count, capacity: data[0].capacity });

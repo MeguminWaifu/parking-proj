@@ -3,10 +3,12 @@ import './Home.css';
 import Header from '../Header';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import QueueModal from '../Modal/QueueModal';
 
 function Home() {
   const location = useLocation();
   const navigate = useNavigate();
+  const [isQueueModalOpen, setIsQueueModalOpen] = useState(false);
   
   // Retrieve the User Data stored during login
   // const userid = location.state?.displayName || "User";
@@ -20,14 +22,16 @@ function Home() {
   const fetchParkingData = async () => {
     try {
       // Fetch Parking A
-      const resA = await fetch('http://localhost:3001/api/parking-a');
+      // const resA = await fetch('http://localhost:3001/api/parking-a');
+      const resA = await fetch('http://10.121.59.243:3001/api/parking-a');
       const dataA = await resA.json();
       if (dataA && dataA.length > 0) {
         setParkingA({ count: dataA[0].count, capacity: dataA[0].capacity });
       }
 
       // Fetch Parking B
-      const resB = await fetch('http://localhost:3001/api/parking-b');
+      // const resB = await fetch('http://localhost:3001/api/parking-b');
+      const resB = await fetch('http://10.121.59.243:3001/api/parking-b');
       const dataB = await resB.json();
       if (dataB && dataB.length > 0) {
         setParkingB({ count: dataB[0].count, capacity: dataB[0].capacity });
@@ -111,6 +115,33 @@ function Home() {
           </button>
         </div>
       )}
+      {/* Student Queue Button */}
+      {userRole === 'student' && (
+        <div style={{ marginTop: '20px', paddingBottom: '40px' }}>
+          <button 
+            className="container" 
+            style={{ 
+                height: 'auto', 
+                width: '600px', 
+                margin: '0 auto', 
+                padding: '20px', 
+                cursor: 'pointer',
+                display: 'block',
+                // border: 'none', // Optional: removes default button border
+                // textAlign: 'center'
+            }}
+          onClick={() => setIsQueueModalOpen(true)}
+    >
+      <h2>I Want to Queue</h2>
+      <p>View How many more are on the way</p>
+    </button>
+    <QueueModal 
+      isOpen={isQueueModalOpen} 
+      onClose={() => setIsQueueModalOpen(false)} 
+      user={userid}
+    />
+  </div>
+)}
     </>
   );
 }
