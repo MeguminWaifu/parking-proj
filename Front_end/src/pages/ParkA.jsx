@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from '../Header';
 import './Parking.css';
 import { useLocation } from 'react-router-dom';
+import { API_BASE } from '../config';
 
 function ParkA() {
   const location = useLocation();
@@ -14,11 +15,12 @@ function ParkA() {
     const fetchData = async () => {
       try {
         // const response = await fetch('http://localhost:3001/api/parking-a');
-        const response = await fetch('http://10.121.59.243:3001/api/parking-a');
+        // const response = await fetch('http://10.121.59.243:3001/api/parking-a');
+        const response = await fetch(`${API_BASE}/parking/A`);
         const data = await response.json();
-        if (data.length > 0) {
-          
-          setDbData({ count: data[0].count, capacity: data[0].capacity });
+        
+        if (data && !data.error) {
+          setDbData({ count: data.count, capacity: data.capacity });
         }
       } catch (err) {
         console.error("Database connection error:", err);

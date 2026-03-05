@@ -4,49 +4,47 @@ import Header from '../Header';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import QueueModal from '../Modal/QueueModal';
+import { API_BASE } from '../config';
 
 function Home() {
   const location = useLocation();
   const navigate = useNavigate();
   const [isQueueModalOpen, setIsQueueModalOpen] = useState(false);
   
-  // Retrieve the User Data stored during login
-  // const userid = location.state?.displayName || "User";
+ 
   const userid = String(location.state?.displayName || localStorage.getItem('userName') || "User");
-  const userRole = localStorage.getItem('userRole') || "student"; // Use localStorage for persistence
+  const userRole = localStorage.getItem('userRole') || "student"; 
 
   const [parkingA, setParkingA] = useState({ count: 0, capacity: 1 });
   const [parkingB, setParkingB] = useState({ count: 0, capacity: 1 });
 
-  useEffect(() => {
-  const fetchParkingData = async () => {
-    try {
-      // Fetch Parking A
-      // const resA = await fetch('http://localhost:3001/api/parking-a');
-      const resA = await fetch('http://10.121.59.243:3001/api/parking-a');
-      const dataA = await resA.json();
-      if (dataA && dataA.length > 0) {
-        setParkingA({ count: dataA[0].count, capacity: dataA[0].capacity });
-      }
 
-      // Fetch Parking B
-      // const resB = await fetch('http://localhost:3001/api/parking-b');
-      const resB = await fetch('http://10.121.59.243:3001/api/parking-b');
-      const dataB = await resB.json();
-      if (dataB && dataB.length > 0) {
-        setParkingB({ count: dataB[0].count, capacity: dataB[0].capacity });
-      }
-    } catch (err) {
-      console.error("Fetch error:", err);
-    }
-  };
+    useEffect(() => {
+    const fetchParkingData = async () => {
+        // const API_BASE = 'http://10.121.59.243:3001/api/parking';
+        // const API_BASE = 'http://localhost:3001/api/parking';
+        // const API_BASE = "https://mcl-parking-app.loca.lt/api/parking";
+        try {
+            const [resA, resB] = await Promise.all([
+                fetch(`${API_BASE}/parking/A`),
+                fetch(`${API_BASE}/parking/B`)
+            ]);
 
-  fetchParkingData();
-  const interval = setInterval(fetchParkingData, 5000); // 5 seconds
-  return () => clearInterval(interval);
+            const dataA = await resA.json();
+            const dataB = await resB.json();
+
+            if (dataA && !dataA.error) setParkingA({ count: dataA.count, capacity: dataA.capacity });
+            if (dataB && !dataB.error) setParkingB({ count: dataB.count, capacity: dataB.capacity });
+        } catch (err) {
+            console.error("Fetch error:", err);
+        }
+    };
+
+    fetchParkingData();
+    const interval = setInterval(fetchParkingData, 5000);
+    return () => clearInterval(interval);
 }, []);
-
-  // Navigation Logic based on Role
+//role based navigation handlers
   const handleParkingAClick = () => {
     const path = userRole === 'admin' ? '/admina' : '/parka';
     navigate(path, { state: { user: userid, currentCount: parkingA.count } });
@@ -79,7 +77,7 @@ function Home() {
           <h2>Parking A</h2>
           <div className="progress-info"><p>{parkingA.count} / {parkingA.capacity}</p></div>
           <div className="progress-bar-wrapper">
-            <div className="progress-bar" style={{ width: `${progressPercentageA}%`, backgroundColor: progressPercentageA > 90 ? 'red' : '#4caf50' }}></div>
+            <div className="progress-bar" style={{ width: `${progressPercentageA}%`, backgroundColor: progressPercentageA > 55 && progressPercentageA <= 85 ? 'yellow' : progressPercentageA > 85 ? 'red' : '#4caf50' }}></div>
           </div>
           <p className="status-text">{parkingA.capacity - parkingA.count} spots available</p>
         </div>
@@ -89,7 +87,7 @@ function Home() {
           <h2>Parking B</h2>
           <div className="progress-info"><p>{parkingB.count} / {parkingB.capacity}</p></div>
           <div className="progress-bar-wrapper">
-            <div className="progress-bar" style={{ width: `${progressPercentageB}%`, backgroundColor: progressPercentageB > 90 ? 'red' : '#4caf50' }}></div>
+            <div className="progress-bar" style={{ width: `${progressPercentageB}%`, backgroundColor: progressPercentageB > 55 && progressPercentageB <= 85 ? 'yellow' : progressPercentageB > 85 ? 'red' : '#4caf50' }}></div>
           </div>
           <p className="status-text">{parkingB.capacity - parkingB.count} spots available</p>
         </div>
@@ -127,7 +125,7 @@ function Home() {
                 padding: '20px', 
                 cursor: 'pointer',
                 display: 'block',
-                // border: 'none', // Optional: removes default button border
+                // border: 'none', 
                 // textAlign: 'center'
             }}
           onClick={() => setIsQueueModalOpen(true)}

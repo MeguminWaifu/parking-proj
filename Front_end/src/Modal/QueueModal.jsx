@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './QueueModal.css';
+import { API_BASE } from '../config';
 
 function QueueModal({ isOpen, onClose, user }) {
   const [queueCount, setQueueCount] = useState(0);
@@ -12,7 +13,8 @@ function QueueModal({ isOpen, onClose, user }) {
 
   const fetchQueueCount = async () => {
     try {
-      const response = await fetch('http://10.121.59.243:3001/api/queue-count'); // Your API endpoint
+      // const response = await fetch('http://10.121.59.243:3001/api/queue-count'); 
+      const response = await fetch(`${API_BASE}/queue-count`);
       const data = await response.json();
       setQueueCount(data.count);
     } catch (err) {
@@ -22,7 +24,8 @@ function QueueModal({ isOpen, onClose, user }) {
 
  const handleJoinQueue = async () => {
   try {
-    const response = await fetch('http://10.121.59.243:3001/api/join-queue', {
+    // const response = await fetch('http://10.121.59.243:3001/api/join-queue', {
+    const response = await fetch(`${API_BASE}/join-queue`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username: user }) 

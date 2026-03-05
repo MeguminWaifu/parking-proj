@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import mclLogo from '../assets/image asset/mcl sign.jpg';
+import { API_BASE } from '../config';
 
 function Login() {
  
@@ -13,9 +14,12 @@ function Login() {
   e.preventDefault();
   try {
     // const response = await fetch('http://localhost:3001/api/login', {
-    const response = await fetch('http://10.121.59.243:3001/api/login', {
+    // const response = await fetch('http://10.121.59.243:3001/api/login', {
+    const response = await fetch(`${API_BASE}/login`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json',
+        'ngrok-skip-browser-warning': 'true'
+       },
       body: JSON.stringify({ userid, password }), 
     });
 
