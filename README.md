@@ -32,6 +32,8 @@ npm install -g npm@latest
 
 - if you get permission errors use this command first:
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+## NGROK auth
+- ngrok config add-authtoken 3AWnzyY2JuwWPfSWV9G9rBoxVvi_5L5JRSvTtpk7RxyUdMkXY
 ## Running the API
 for Parking_API.py
 - uvicorn Parking_API:app --host 0.0.0.0 --port 8000
