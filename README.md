@@ -35,6 +35,9 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ## Running the API
 for Parking_API.py
 - uvicorn Parking_API:app --host 0.0.0.0 --port 8000
+- npm run build
+- node index.js
+- ngrok http 3001 --domain=kevin-postbursal-corie.ngrok-free.dev        
 
 ## UPDATES
 - pip install "fastapi[standard]"
